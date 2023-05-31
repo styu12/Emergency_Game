@@ -46,13 +46,11 @@ export default function Choice({obj, setObj, stages}) {
        
     }
 
-    console.log(pos);
-
     return (
         <Layout>
             <div  className="h-[75vh] flex flex-col items-center justify-center">
                 <div className="relative w-2/5 pb-[40%] border-secondary rounded-full border-2 mb-10 flex flex-col justify-center items-center">
-                    <span className="absolute top-1/2 left-1/2 w-32 h-16 text-center -translate-x-16 -translate-y-8" id="patient">🚑 환자 🚑</span>
+                    <span className="flex justify-center items-center absolute top-1/2 left-1/2 w-32 h-16 text-center -translate-x-16 -translate-y-8" id="patient">🚑 환자 🚑</span>
                     <style jsx global>{`
                             #patient {
                                 top: ${pos[0]}%;
