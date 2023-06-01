@@ -16,8 +16,7 @@ export default function Layout({children}) {
       </Head>
         
         <Header />        
-
-        <main className="h-full px-12 py-5 ">
+        <main  className="h-full">
             {children}
         </main>
 

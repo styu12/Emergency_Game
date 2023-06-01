@@ -32,11 +32,13 @@ export default function Accident() {
 
     return accidentContents && (
         <Layout>
-            <div className="h-[75vh] flex flex-col items-center justify-center">
-                <div className="h-full w-full flex flex-row justify-center px-32 items-center mb-10">
-                    <div className='w-full h-2/3  border-secondary rounded-lg border-2 mr-10' 
+            <div className="w-full h-full flex flex-col items-center justify-center">
+                <div className="h-full w-full flex flex-row justify-center px-12 items-center">
+                    <div className='w-full h-2/3  border-secondary rounded-lg border-2' 
                     style={{
                         backgroundImage: `url(${accidentContents[id]?.img})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
                     }}>
                         <h1>쓰러진모습</h1>
                     </div>
@@ -45,7 +47,7 @@ export default function Accident() {
 
                 <div>
                     <Link 
-                    className="button w-52 text-lg font-semibold"
+                    className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
                     href={`/game/${id}/choice`}
                     // onClick={() => {
                     //     setObj({...obj, stage: stages.CHOICE});

@@ -10,10 +10,10 @@ export default function Header() {
     const showHp = useRecoilValue(showHpState);
 
     return (
-        <header className="flex items-center justify-between h-24 px-12 py-5 bg-white shadow-sm">
-            <div className="flex items-center">
+        <header className="fixed left-0 top-0 flex flex-col items-center h-screen w-[18vw] py-10 px-0 bg-[#f5f5f5] shadow-sm">
+            <div className="flex items-center mb-10">
                 <div className="mr-6">
-                    <Link href="/" className="text-2xl font-bold text-primary">
+                    <Link href="/" className="text-lg font-bold text-primary">
                      🚑 Emergency Game
                     </Link>
                 </div>

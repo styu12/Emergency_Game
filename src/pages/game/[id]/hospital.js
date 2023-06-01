@@ -37,11 +37,13 @@ export default function Hospital() {
 
     return type && ( 
         <Layout>
-            <div className="h-[75vh] flex flex-col items-center justify-center">
-                <div className="h-full w-full flex flex-row justify-center px-32 items-center mb-10">
-                    <div className=" w-full h-96 border-secondary rounded-lg border-2 mr-10"
+            <div className="w-full h-full flex flex-col items-center justify-center">
+                <div className="h-full w-full flex flex-row justify-center px-32 items-center">
+                    <div className=" w-full h-2/3 border-secondary rounded-lg border-2"
                     style={{
                         backgroundImage: type === 'general' ? `url(${hospitalContents[id]?.general.img})` : `url(${hospitalContents[id]?.local.img})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
                     }}
                     >
                         <h1>권역응급센터</h1>
@@ -50,7 +52,7 @@ export default function Hospital() {
 
                 <div>
                     <Link 
-                    className="button w-52 text-lg font-semibold"
+                    className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
                     href={`/game/${id}/data`}
                     >데이터 보러가기</Link>
                 </div>

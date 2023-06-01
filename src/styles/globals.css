@@ -62,6 +62,18 @@ li {
 }
 
 .container {
+  max-width: 80vw;
+  height: 95vh;
+  margin-left: 18vw;
+  margin-top: 16px;
+  margin-bottom: 18px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/*
+.container {
   max-width: 90vw;
   min-height: 100vh;
   margin: 20px auto;
@@ -70,8 +82,9 @@ li {
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+*/
 
 .button {
-    @apply bg-secondary text-white font-medium hover:text-black rounded-xl text-lg p-3.5;
+    @apply bg-secondary text-white font-medium hover:text-black rounded-xl text-lg p-3.5 flex justify-center items-center;
 }
 

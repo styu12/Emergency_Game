@@ -66,8 +66,8 @@ export default function Choice() {
 
     return choiceContents && (
         <Layout>
-            <div  className="h-[75vh] flex flex-col items-center justify-center">
-                <div className="relative w-[700px] pb-[700px] border-secondary rounded-full border-2 mb-10 flex flex-col justify-center items-center"
+            <div  className="w-full h-full flex flex-col items-center justify-center">
+                <div className="relative w-[700px] pb-[700px] border-secondary rounded-full border-2 flex flex-col justify-center items-center"
                 style={{
                     backgroundImage: `url(${choiceContents[id]?.img})`,
                     backgroundSize: 'cover',
