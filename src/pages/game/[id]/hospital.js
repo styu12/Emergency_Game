@@ -1,4 +1,4 @@
-import { captionState, showCaptionState, showHpState } from "@/states";
+import { captionState, descriptionState, showCaptionState, showHpState } from "@/states";
 import { useSetRecoilState } from "recoil";
 import { useEffect } from "react";
 import Link from "next/link";
@@ -13,6 +13,7 @@ export default function Hospital() {
     const setShowHp = useSetRecoilState(showHpState);
     const setShowCaption = useSetRecoilState(showCaptionState);
     const setCaption = useSetRecoilState(captionState);
+    const setDescription = useSetRecoilState(descriptionState);
     
     useEffect(() => {
         setTimeout(() => {
@@ -26,12 +27,14 @@ export default function Hospital() {
             title: hospitalContents[id]?.general.capTitle,
             content: hospitalContents[id]?.general.capContent,
         });
+        setDescription(hospitalContents[id]?.general.description);
     }
     if(type && type === 'local') {
         setCaption({
             title: hospitalContents[id]?.local.capTitle,
             content: hospitalContents[id]?.local.capContent,
         });
+        setDescription(hospitalContents[id]?.local.description);
     }
     
 

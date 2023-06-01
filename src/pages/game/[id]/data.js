@@ -1,5 +1,5 @@
 import { useSetRecoilState } from "recoil";
-import { captionState, showCaptionState, showHpState } from "@/states";
+import { captionState, descriptionState, showCaptionState, showHpState } from "@/states";
 import { useEffect } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
@@ -13,6 +13,8 @@ export default function Data() {
     const setShowHp = useSetRecoilState(showHpState);
     const setShowCaption = useSetRecoilState(showCaptionState);
     const setCaption = useSetRecoilState(captionState);
+    const setDescription = useSetRecoilState(descriptionState);
+    
 
     useEffect(() => {
         setTimeout(() => {
@@ -25,6 +27,8 @@ export default function Data() {
         title: dataContents[id]?.capTitle,
         content: dataContents[id]?.capContent,
     });
+
+    setDescription(dataContents[id]?.description);
 
     return (
         <Layout>

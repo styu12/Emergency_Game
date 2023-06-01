@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import { captionState, hpState, showCaptionState, showHpState } from "@/states";
+import { captionState, descriptionState, hpState, showCaptionState, showHpState } from "@/states";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -14,6 +14,7 @@ export default function Accident() {
     const setHp = useSetRecoilState(hpState);
     const setShowCaption = useSetRecoilState(showCaptionState);
     const setCaption = useSetRecoilState(captionState);
+    const setDescription = useSetRecoilState(descriptionState);
 
     useEffect(() => {
         setTimeout(() => {
@@ -27,6 +28,8 @@ export default function Accident() {
         title: accidentContents[id]?.capTitle,
         content: accidentContents[id]?.capContent,
     });
+
+    setDescription(accidentContents[id]?.description);
 
 
 

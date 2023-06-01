@@ -1,5 +1,5 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { captionState, hpState, posState, showCaptionState, showHpState } from "@/states";
+import { captionState, descriptionState, hpState, posState, showCaptionState, showHpState } from "@/states";
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
@@ -12,6 +12,7 @@ export default function Choice() {
     const setShowHp = useSetRecoilState(showHpState);
     const setShowCaption = useSetRecoilState(showCaptionState);
     const setCaption = useSetRecoilState(captionState);
+    const setDescription = useSetRecoilState(descriptionState);
     const [pos, setPos] = useRecoilState(posState);
     const [hp, setHp] = useRecoilState(hpState);
 
@@ -32,6 +33,8 @@ export default function Choice() {
         title: choiceContents[id]?.capTitle,
         content: choiceContents[id]?.capContent,
     });
+
+    setDescription(choiceContents[id]?.description);
 
     const move = (i) => {
         setPos([dir[i][0], dir[i][1]]);

@@ -27,3 +27,8 @@ export const posState = atom({
     key: "posState",
     default: [50, 50],
 });
+
+export const descriptionState = atom({
+    key: "descriptionState",
+    default: ``,
+});

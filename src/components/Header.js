@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
-import { hpState, showHpState } from "@/states";
+import { descriptionState, hpState, showHpState } from "@/states";
 import { motion } from "framer-motion";
 
 export default function Header() {
-    const route = useRouter();
     const hp = useRecoilValue(hpState);
     const showHp = useRecoilValue(showHpState);
+    const description = useRecoilValue(descriptionState);
 
     return (
         <header className="fixed left-0 top-0 flex flex-col items-center h-screen w-[18vw] py-10 px-0 bg-[#f5f5f5] shadow-sm">
@@ -40,17 +40,13 @@ export default function Header() {
                              ease: "easeInOut",
                            }}
                          />
-                        {/* <style jsx global>{`
-                            .hp {
-                                width: ${hp}%;
-                                -webkit-transition:width 1s;
-                                transition: width 1s;
-                            }
-                        `}</style> */}
-                        {/* <div className={hpStyles.join(" ")}></div> */}
                     </motion.div>
                 </div>
                 )}
+
+            <div className="flex flex-col items-center mt-16 py-12 px-4 mx-3 bg-white rounded-3xl text-primary shadow-md">
+                <p className="text-center text-lg">{description}</p>
+            </div>
         </header>
     )
 }
