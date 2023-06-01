@@ -1,13 +1,13 @@
 import DistanceResult from "@/components/DistanceResult";
 import DoctorResult from "@/components/DoctorResult";
-import Layout from "@/components/Layout";
+import { FullLayout } from "@/components/Layout";
 import { useState } from "react";
 
 export default function Result() {
     const [type, setType] = useState("");
 
     return (
-     <Layout>
+     <FullLayout>
        {type === "" ? (
         <div className="flex flex-col items-center">
                 <h1 className="text-6xl font-bold text-center text-primary mb-12">당신은 생존할 수 있을까요?</h1>
@@ -24,6 +24,6 @@ export default function Result() {
         <DistanceResult />
        )
     )}
-     </Layout> 
+     </FullLayout> 
     )
 }
