@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
 import { choiceContents } from "@/contents/Content";
+import Image from "next/image";
 
 export default function Choice() {
     const router = useRouter();
@@ -19,7 +20,7 @@ export default function Choice() {
     const dir = [
         [15, 70],
         [65, 75],
-        [25, 15]
+        [45, 15]
     ]
 
     useEffect(() => {
@@ -70,20 +71,12 @@ export default function Choice() {
     return choiceContents && (
         <Layout>
             <div  className="w-full h-full flex flex-col items-center justify-center">
-                <div className="relative w-[700px] pb-[700px] border-secondary rounded-full border-2 flex flex-col justify-center items-center"
+                <div className="relative w-[700px] pb-[700px] rounded-full flex flex-col justify-center items-cente bg-cover bg-center"
                 style={{
                     backgroundImage: `url(${choiceContents[id]?.img})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
                 }}
                 >
-                    <div className="flex justify-center items-center absolute top-1/2 left-1/2 w-32 h-16 text-center -translate-x-16 -translate-y-8" id="patient"
-                    style={{
-                        backgroundImage: 'url(/amb.jpeg)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                    ></div>
+                    <Image src="/amb.jpeg" className="absolute top-1/2 left-1/2 -translate-x-[50px] -translate-y-[25px]" id="patient" width={100} height={50}  />
                     <style jsx global>{`
                             #patient {
                                 top: ${pos[0]}%;
@@ -91,47 +84,33 @@ export default function Choice() {
                                 transition: all 1.5s;
                             }
                         `}</style>
-                    <div     
-                    onClick={() => {
-                        move(0);
-                    }}
-                    className="absolute w-32 h-32 cursor-pointer"
+
+                    <Image 
+                    onClick={() => { move(0) }}
+                    src="/hospital.png" className="absolute cursor-pointer" width={40} height={40}
                     style={{
-                        backgroundImage: 'url(/hospital.png)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
                         top: `${dir[0][0]}%`,
                         left: `${dir[0][1]}%`,
                     }}
-                    ></div>
+                    />
 
-                    <div     
-                    onClick={() => {
-                        move(1);
-                    }}
-                    className="absolute w-32 h-32 cursor-pointer"
+                <Image 
+                    onClick={() => { move(1) }}
+                    src="/hospital.png" className="absolute cursor-pointer" width={40} height={40}
                     style={{
-                        backgroundImage: 'url(/hospital.png)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
                         top: `${dir[1][0]}%`,
                         left: `${dir[1][1]}%`,
                     }}
-                    ></div>
+                    />
 
-                    <div 
-                    onClick={() => {
-                        move(2);
-                    }}
-                    className="absolute w-32 h-32 cursor-pointer"
+                    <Image 
+                    onClick={() => { move(2) }}
+                    src="/hospital.png" className="absolute cursor-pointer" width={40} height={40}
                     style={{
-                        backgroundImage: 'url(/hospital.png)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
                         top: `${dir[2][0]}%`,
                         left: `${dir[2][1]}%`,
                     }}
-                    ></div>
+                    />
                 </div>    
             </div>
         </Layout>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import { hospitalContents } from "@/contents/Content";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function Hospital() {
     const router = useRouter();
@@ -42,7 +43,7 @@ export default function Hospital() {
         <Layout>
             <div className="w-full h-full flex flex-col items-center justify-center">
                 <div className="h-full w-full flex flex-row justify-center px-32 items-center">
-                    <div className=" w-full h-2/3 border-secondary rounded-lg border-2"
+                    {/* <div className=" w-full h-2/3 border-secondary rounded-lg border-2"
                     style={{
                         backgroundImage: type === 'general' ? `url(${hospitalContents[id]?.general.img})` : `url(${hospitalContents[id]?.local.img})`,
                         backgroundSize: 'cover',
@@ -50,7 +51,10 @@ export default function Hospital() {
                     }}
                     >
                         <h1>권역응급센터</h1>
-                    </div>
+                    </div> */}
+                    <Image src={type === 'general' ? hospitalContents[id]?.general.img : hospitalContents[id]?.local.img} width={500} height={500}
+                    className="rounded-xl shadow-lg"
+                    />
                 </div>
 
                 <div>

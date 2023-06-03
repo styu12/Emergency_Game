@@ -5,6 +5,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
 import { dataContents } from "@/contents/Content";
+import Image from "next/image";
 
 export default function Data() {
     const router = useRouter();
@@ -34,15 +35,9 @@ export default function Data() {
         <Layout>
             <div className="w-full h-full flex flex-col items-center justify-center">
                 <div className="h-full w-full flex flex-row justify-center px-32 items-center">
-                    <div className=" w-full h-2/3 border-secondary rounded-lg border-2"
-                    style={{
-                        backgroundImage: `url(${dataContents[id]?.img})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                    >
-                        <h1>데이터!!</h1>
-                    </div>
+                    <Image src={dataContents[id]?.img} width={1000} height={500}
+                    className="rounded-xl shadow-lg"
+                    />
                 </div>
 
                 <div>

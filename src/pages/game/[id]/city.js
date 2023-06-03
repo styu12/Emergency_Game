@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import { captionState, hpState, showCaptionState, showHpState } from "@/states";
+import { captionState, descriptionState, hpState, showCaptionState, showHpState } from "@/states";
 import Layout from "@/components/Layout";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { accidentContents } from "@/contents/Content";
+import { cityContents } from "@/contents/Content";
 import { motion } from 'framer-motion';
 
 export default function City() {
@@ -15,21 +14,24 @@ export default function City() {
     const setHp = useSetRecoilState(hpState);
     const setShowCaption = useSetRecoilState(showCaptionState);
     const setCaption = useSetRecoilState(captionState);
+    const setDescription = useSetRecoilState(descriptionState);
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setShowCaption(true);
-    //         setHp(50);
-    //     }, 300);
-    //     setShowHp(true);
-    // }, []);
+    useEffect(() => {
+        setTimeout(() => {
+            setShowCaption(true);
+            setHp(50);
+        }, 300);
+        setShowHp(true);
+    }, []);
 
     setCaption({
-        title: accidentContents[id]?.capTitle,
-        content: accidentContents[id]?.capContent,
+        title: cityContents[id]?.capTitle,
+        content: cityContents[id]?.capContent,
     });   
 
-    return accidentContents && (
+    setDescription(cityContents[id]?.description)
+
+    return cityContents && (
         <Layout>
             <div className="w-full h-full flex items-center justify-center rounded-3xl">
                 <motion.div className="h-full flex-1  rounded-l-3xl flex justify-center items-center cursor-pointer"
@@ -40,7 +42,7 @@ export default function City() {
                 }}
                 whileHover={{ opacity: 1}}
                 initial={{ opacity: 0.4}}
-                onClick={() => router.push(`/game/${id}/accident`)}
+                onClick={() => router.push(`/game/${id}/move`)}
                 >
                     <h1 className="text-6xl font-bold text-center text-primary mb-12">도시</h1>
                 </motion.div>
@@ -52,7 +54,7 @@ export default function City() {
                 }}
                 whileHover={{ opacity: 1}}
                 initial={{ opacity: 0.4}}
-                onClick={() => router.push(`/game/${id}/accident`)}
+                onClick={() => router.push(`/game/${id}/choice`)}
                 >
                     <h1 className="text-6xl font-bold text-center text-primary mb-12">지역</h1>
                 </motion.div>
