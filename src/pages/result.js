@@ -1,13 +1,14 @@
 import DistanceResult from "@/components/DistanceResult";
 import DoctorResult from "@/components/DoctorResult";
-import { FullLayout } from "@/components/Layout";
+import Layout, { FullLayout } from "@/components/Layout";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Result() {
     const [type, setType] = useState("");
 
     return (
-     <FullLayout>
+     <Layout>
        {type === "" ? (
         <div className="flex flex-col items-center">
                 <h1 className="text-6xl font-bold text-center text-primary mb-12">당신은 생존할 수 있을까요?</h1>
@@ -19,11 +20,14 @@ export default function Result() {
         </div>
        ) : (
         type === "city" ? (
-        <DoctorResult />
+        // <DoctorResult />
+        <div className="w-full h-full flex justify-center items-center">
+            <Image src="/point.png" width={400} height={700} />
+        </div>
        ) : (
         <DistanceResult />
        )
     )}
-     </FullLayout> 
+     </Layout> 
     )
 }

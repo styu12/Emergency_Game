@@ -1,27 +1,25 @@
+import { descriptionState } from "@/states";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useSetRecoilState } from "recoil";
 
 
 export default function DistanceResult() {
 const [moving, setMoving] = useState(false);
+const setDescription = useSetRecoilState(descriptionState);
 
 useEffect(() => {
         setMoving(true);
 }, []);
 
-const dir = [[50, 0], [50, 100], [40, 1]];
-const pos = [50, 50];
+setDescription(`병원까지 소요시간 : 도시는 평균 1시간 30분, 지방은 3시간입니다.`)
     
 return (
         <div className="flex flex-col items-center w-full">
                 <div className="relative w-1/2 pb-[50%] rounded-[50%] mb-10 flex flex-col justify-center items-center">
-                    <span className="absolute flex justify-center items-center top-1/2 left-1/2 w-32 h-16 text-center -translate-x-16 -translate-y-8" id="patient">🏥 병원</span>
-                    <style jsx global>{`
-                            #patient {
-                                top: ${pos[0]}%;
-                                left: ${pos[1]}%;
-                                transition: all 1.5s;
-                            }
-                        `}</style>
+                    <Image 
+                    src="/hospital.png" className="absolute top-1/2 left-1/2 -translate-x-[20px] -translate-y-[20px]" width={40} height={40}
+                    />
 
                     <div className="absolute top-[50%] left-[50%] w-1/2 h-6 origin-left -translate-y-3 bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
                             <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[3000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
