@@ -52,7 +52,7 @@ export default function Accident() {
                 </div>
 
                 <div>
-                    {id === 1 ? (
+                    {id === "0" ? (
                         <Link 
                         className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
                         href={`/game/${id}/choice`}
