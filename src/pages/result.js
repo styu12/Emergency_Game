@@ -1,6 +1,6 @@
 import DistanceResult from "@/components/DistanceResult";
 import Layout, { FullLayout } from "@/components/Layout";
-import { showDescriptionState } from "@/states";
+import { showDescriptionState, showHpState } from "@/states";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
@@ -8,9 +8,11 @@ import { useSetRecoilState } from "recoil";
 export default function Result() {
     const [type, setType] = useState("");
     const setShowDescription = useSetRecoilState(showDescriptionState);
+    const setShowHp = useSetRecoilState(showHpState);
 
     useEffect(() => {
         setShowDescription(false);
+        setShowHp(false);
     }, []);
 
     return (

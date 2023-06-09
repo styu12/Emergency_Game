@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 
 export default function DistanceResult({setType}) {
-const [backgroundImage, setBackgroundImage] = useState(Array.from({length: 8}, () => "no-repeat center/100% url('/amb.jpeg')"));
+const [backgroundImage, setBackgroundImage] = useState(Array.from({length: 8}, () => "no-repeat center/100% url('/amb.png')"));
 
 const dist = [0, 15, 20, 35, 50, 25, 10, 0]
 
@@ -18,7 +18,7 @@ move: i => ({
 const changeBackground = (i) => {
         if([1, 2, 3, 4, 5, 6].includes(i)) {
                 setBackgroundImage(backgroundImage.map((b, index) => {
-                        if(index == i) return "no-repeat center/100% url('/student.jpg')";
+                        if(index == i) return "no-repeat center/100% url('/student.png')";
                         else return b;
                 }));
         }       else return;
@@ -53,8 +53,8 @@ return (
                 <div className="flex flex-col w-full pt-10">
                         {dist.map((_, i) => (
                                 <div className="relative w-full h-12 mt-4" key={i}>
-                                        <Image src="/hospital.png" className="absolute top-0 right-0 -translate-x-[20px] -translate-y-[20px]" width={40} height={40} />
-                                        <motion.div className={`absolute w-12 h-12 rounded-[50%] top-0 transition-all`}
+                                        <Image src="/clinic.png" className="absolute top-0 right-0 -translate-x-[20px] -translate-y-[20px]" width={40} height={40} />
+                                        <motion.div className={`absolute w-12 h-12 rounded-[50%] top-0 transition-all scale-x-[-1]`}
                                         style={{        
                                                 background: backgroundImage[i],
                                         }}

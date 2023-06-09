@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { descriptionState, showCaptionState, showDescriptionState, showHpState } from "@/states";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
@@ -26,15 +27,15 @@ export default function Home() {
         <h2 className='mb-10 text-4xl font-bold text-primary'>우리는 살  수 있을까?</h2>
         <h3 className='mb-5 text-2xl font-semibold text-primary'>캐릭터를 선택해주세요</h3>
 
-        <div className='flex w-full justify-between'>
-        <Link href='/game/0/accident' className='button'>
-            대학생
+        <div className='flex w-full justify-between p-20'>
+        <Link href='/game/0/accident'>
+            <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/student.png' width={300} height={300} alt='student' />
         </Link>
-        <Link href='/game/1/accident' className='button'>
-            대구 거주 우울증 환자
+        <Link href='/game/1/accident'>
+          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/girl.png' width={300} height={300} alt='girl' /> 
         </Link>
-        <Link href='/game/2/accident' className='button'>
-            노인
+        <Link href='/game/2/accident'>
+          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/grandpa.png' width={300} height={300} alt='grandpa' />
         </Link>
         </div>    
       </div> 

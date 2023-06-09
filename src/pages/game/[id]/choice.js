@@ -18,7 +18,7 @@ export default function Choice() {
     const [hp, setHp] = useRecoilState(hpState);
 
     const dir = [
-        [15, 70],
+        [15, 60],
         [65, 75],
         [45, 15]
     ]
@@ -76,7 +76,7 @@ export default function Choice() {
                     backgroundImage: `url(${choiceContents[id]?.img})`,
                 }}
                 >
-                    <Image src="/amb.jpeg" className="absolute top-1/2 left-1/2 -translate-x-[50px] -translate-y-[25px]" id="patient" width={100} height={50}  />
+                    <Image src="/amb.png" className="absolute top-1/2 left-1/2 -translate-x-[50px] -translate-y-[25px]" id="patient" width={100} height={50}  />
                     <style jsx global>{`
                             #patient {
                                 top: ${pos[0]}%;
@@ -87,7 +87,7 @@ export default function Choice() {
 
                     <Image 
                     onClick={() => { move(0) }}
-                    src="/hospital.png" className="absolute cursor-pointer" width={40} height={40}
+                    src="/clinic.png" className="absolute cursor-pointer" width={40} height={40}
                     style={{
                         top: `${dir[0][0]}%`,
                         left: `${dir[0][1]}%`,
@@ -96,7 +96,7 @@ export default function Choice() {
 
                 <Image 
                     onClick={() => { move(1) }}
-                    src="/hospital.png" className="absolute cursor-pointer" width={40} height={40}
+                    src="/clinic.png" className="absolute cursor-pointer" width={40} height={40}
                     style={{
                         top: `${dir[1][0]}%`,
                         left: `${dir[1][1]}%`,
@@ -105,7 +105,7 @@ export default function Choice() {
 
                     <Image 
                     onClick={() => { move(2) }}
-                    src="/hospital.png" className="absolute cursor-pointer" width={40} height={40}
+                    src="/clinic.png" className="absolute cursor-pointer" width={40} height={40}
                     style={{
                         top: `${dir[2][0]}%`,
                         left: `${dir[2][1]}%`,
