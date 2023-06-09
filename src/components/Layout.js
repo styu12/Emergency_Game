@@ -29,14 +29,14 @@ export function FullLayout({ children }) {
     return (
         <div className="relative">
     
-            <Header />        
+            {/* <Header />         */}
 
             <Head>
             <title>🚑 Emergency Game</title>
             <meta name="description" content="Emergency Game" />
           </Head>      
     
-            <main className="h-full">
+            <main className="h-full py-10 px-12">
                 {children}
             </main>
     

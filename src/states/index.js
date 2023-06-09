@@ -32,3 +32,8 @@ export const descriptionState = atom({
     key: "descriptionState",
     default: ``,
 });
+
+export const showDescriptionState = atom({
+    key: "showDescriptionState",
+    default: true,
+});

@@ -44,6 +44,7 @@ export default function Accident() {
                     }}>
                     </div> */}
                     <Image src={accidentContents[id]?.img} 
+                    alt="accident"
                     width={500}
                     height={500}
                     className="rounded-2xl shadow-lg"

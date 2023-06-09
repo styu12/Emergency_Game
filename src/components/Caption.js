@@ -7,7 +7,7 @@ export default function Caption() {
     const caption = useRecoilValue(captionState);
 
     return (
-        <motion.div className="fixed bottom-0 left-0 w-screen h-80 bg-orange-300 rounded-xl p-10
+        <motion.div className="fixed bottom-0 left-0 w-screen h-80 bg-secondary rounded-xl p-10
              flex flex-col items-center justify-between"
 
             initial={{ opacity: 0, y: 320 }}
@@ -18,7 +18,7 @@ export default function Caption() {
             
             >
             <div>
-                <h2 className="text-2xl font-bold text-center text-tertiary mb-5">{caption.title}</h2>
+                <h2 className="text-2xl font-bold text-center text-primary mb-5">{caption.title}</h2>
                 <p className="text-lg text-center mb-5">
                     {caption.content}
                 </p>    

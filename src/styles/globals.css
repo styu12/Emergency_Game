@@ -85,6 +85,6 @@ li {
 */
 
 .button {
-    @apply bg-secondary text-white font-medium hover:text-black rounded-xl text-lg p-3.5 flex justify-center items-center;
+    @apply bg-primary text-white font-medium hover:text-black rounded-xl text-lg p-3.5 flex justify-center items-center;
 }
 

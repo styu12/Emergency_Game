@@ -1,61 +1,71 @@
-import { descriptionState } from "@/states";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 
-export default function DistanceResult() {
-const [moving, setMoving] = useState(false);
-const setDescription = useSetRecoilState(descriptionState);
+export default function DistanceResult({setType}) {
+const [backgroundImage, setBackgroundImage] = useState(Array.from({length: 8}, () => "no-repeat center/100% url('/amb.jpeg')"));
 
-useEffect(() => {
-        setMoving(true);
-}, []);
+const dist = [0, 15, 20, 35, 50, 25, 10, 0]
 
-setDescription(`병원까지 소요시간 : 도시는 평균 1시간 30분, 지방은 3시간입니다.`)
-    
+const variants = {
+move: i => ({ 
+        transition: { duration: 5 * (dist[i]/25+1), ease: "linear" },
+        right: [`100%`, `${dist[i]}%`], 
+ })
+}
+
+const changeBackground = (i) => {
+        if([1, 2, 3, 4, 5, 6].includes(i)) {
+                setBackgroundImage(backgroundImage.map((b, index) => {
+                        if(index == i) return "no-repeat center/100% url('/student.jpg')";
+                        else return b;
+                }));
+        }       else return;
+}
+
+
 return (
-        <div className="flex flex-col items-center w-full">
-                <div className="relative w-1/2 pb-[50%] rounded-[50%] mb-10 flex flex-col justify-center items-center">
-                    <Image 
-                    src="/hospital.png" className="absolute top-1/2 left-1/2 -translate-x-[20px] -translate-y-[20px]" width={40} height={40}
-                    />
+        <>
+                <div className="flex items-center mb-10">
+                        <button className="mr-5 button" onClick={() => setType("")}>Before</button>
+                        <h2 className='text-4xl font-bold text-primary'>병원까지 이동 시간 : 1.5시간(수도권) vs 3시간(지방)</h2>
+                </div>
 
-                    <div className="absolute top-[50%] left-[50%] w-1/2 h-6 origin-left -translate-y-3 bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
-                            <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[3000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
-                    </div>
+                <motion.div 
+                className="w-full h-6 border-2 rounded-2xl relative"
+                animate={{ borderColor: [ '#16a085', '#d63031'] }}
+                transition={{
+                ease: "linear",
+                duration: 5 * (dist[4]/25+1)
+                }}
+                >
+                        <motion.div
+                        className={`h-full rounded-2xl absolute top-0 left-0 hp`}
+                        animate={{ width: ['100%', '0%'], backgroundColor: ['#16a085', '#d63031'] }}
+                        transition={{
+                        ease: "linear",
+                        duration: 5 * (dist[4]/25+1),
+                        }}
+                        />
+                </motion.div>
 
-                    <div className="absolute top-[50%] left-[50%] w-1/3 h-6 origin-left -translate-y-3 rotate-[45deg] bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
-                            <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[2000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
-                    </div>
-
-                    <div className="absolute top-[50%] left-[50%] w-1/2 h-6 origin-left -translate-y-3 rotate-[90deg] bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
-                            <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[3000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
-                    </div>
-
-                    <div className="absolute top-[50%] left-[50%] w-1/4 h-6 origin-left -translate-y-3 rotate-[135deg] bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
-                            <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[1000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
-                    </div>
-
-                    <div className="absolute top-[50%] left-[50%] w-full h-6 origin-left -translate-y-3 rotate-[180deg] bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
-                            <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[5000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
-                    </div>
-
-                    <div className="absolute top-[50%] left-[50%] w-1/2 h-6 origin-left -translate-y-3 rotate-[225deg] bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
-                            <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[3000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
-                    </div>
-
-                    <div className="absolute top-[50%] left-[50%] w-1/3 h-6 origin-left -translate-y-3 rotate-[270deg] bg-gradient-to-r from-transparent to-green-300 rounded-[0.75rem]">
-                            <div className={`absolute w-6 h-6 rounded-[50%] bg-green-500 top-0 transition-all duration-[2000ms] ${moving ? "right-full opacity-0" : "right-0 opacity-100"}`} />
-                    </div>
-                    {/* <div className="w-12 h-6 -translate-x-6 -translate-y-6 rounded-[50%] bg-black absolute" id="hospital_1" />
-                    <style jsx global>{`
-                            #hospital_1 {
-                                top: ${dir[0][0]}%;
-                                left: ${dir[0][1]}%;
-                            }
-                        `}</style> */}
-                </div>    
-        </div>
-    )
+                <div className="flex flex-col w-full pt-10">
+                        {dist.map((_, i) => (
+                                <div className="relative w-full h-12 mt-4" key={i}>
+                                        <Image src="/hospital.png" className="absolute top-0 right-0 -translate-x-[20px] -translate-y-[20px]" width={40} height={40} />
+                                        <motion.div className={`absolute w-12 h-12 rounded-[50%] top-0 transition-all`}
+                                        style={{        
+                                                background: backgroundImage[i],
+                                        }}
+                                        custom={i}
+                                        animate="move"
+                                        variants={variants}
+                                        onAnimationComplete={() => changeBackground(i)}
+                                        />
+                                </div>
+                        ))}
+                </div>
+        </>
+)
 }

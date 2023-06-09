@@ -14,8 +14,9 @@ module.exports = {
       },
       colors: {
         'primary': '#2c3e50',
-        'secondary': '#16a085',
+        'secondary': 'rgba(223, 249, 251,1.0)',
         'tertiary': '#e67e22',
+        'skyblue': '#00cec9',
       },
       // keyframes: {
       //   captionUp: {
