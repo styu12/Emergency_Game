@@ -1,30 +1,37 @@
-import { useEffect, useState } from "react";
+import { useState } from "react"
 
-export default function DoctorResult() {
-    const [isZoomOut, setIsZoomOut] = useState(false);
-    const count = 25;
-    const cnt = 10000;
 
-    useEffect(() => {
-        setTimeout(() => {
-            setIsZoomOut(true);
-        }, 1500);
-    }, []);
+export default function DoctorResult({setType}) {
+    const [change, setChange] = useState(false);
+    
 
     return (
-     <>
-        <div className="w-full flex flex-wrap justify-between items-center relative">
-            <div className="absolute top-0 left-0 w-full h-full flex flex-wrap gap-[2px] justify-between items-center">
-                {Array.from({length: cnt}).map((_, i) => (
-                    <div key={i} className={`w-[5px] h-[5px] rounded-[50%] bg-black ${isZoomOut ? "scale-[1]" : "scale-[0]"}`}>
-                    </div>
-                ))}
+        <div className="w-full h-[90vh]">
+            <div className="flex items-center mb-10">
+                <button className="mr-5 button" onClick={() => setType("")}>Before</button>
+                <h2 className='text-4xl font-bold text-primary'>
+                    {
+                        change ? 
+                        "수도권 인구 10만명당 전문의 수 : 9명" : 
+                        "빨간 점을 찾아보세요!!"
+                    }
+                </h2>
             </div>
-            {Array.from({length: count}).map((_, i) => (
-                <div key={i} className={`w-48 h-48 rounded-[50%] bg-black transform transition-all ease-in-out duration-[4000] ${isZoomOut ? "scale-[0]" : "scale-[1]"}`}>
-                </div>
-            ))}
-       </div>
-     </> 
+            
+            <div className="flex justify-between items-center w-full h-full">
+                <div className={`w-[90%] h-[100%] transition-all duration-500`}
+                style={{
+                    background: change ?  'no-repeat center/70% url("/point_after.png")' : 'no-repeat center/70% url("/point.png")',
+                }}
+                />
+                <button className="button" onClick={() => setChange(prev => !prev)}>
+                    {
+                        change ? 
+                        "정답 숨기기" :
+                        "정답 보기"
+                    }
+                </button>
+            </div>
+        </div>
     )
 }

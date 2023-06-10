@@ -12,8 +12,12 @@ const variants = {
 move: i => ({ 
         transition: { duration: 5 * (dist[i]/25+1), ease: "linear" },
         right: [`100%`, `${dist[i]}%`], 
+ }),
+ bg_move: i => ({
+        transition: { duration: 5 * (dist[i]/25+1), ease: "linear" },
+        width: [`0%`, `${100 - dist[i]}%`], 
  })
-}
+ }
 
 const changeBackground = (i) => {
         if([1, 2, 3, 4, 5, 6].includes(i)) {
@@ -42,7 +46,7 @@ return (
                 >
                         <motion.div
                         className={`h-full rounded-2xl absolute top-0 left-0 hp`}
-                        animate={{ width: ['100%', '0%'], backgroundColor: ['#16a085', '#d63031'] }}
+                        animate={{ width: ['0%', '100%'], backgroundColor: ['#16a085', '#d63031'] }}
                         transition={{
                         ease: "linear",
                         duration: 5 * (dist[4]/25+1),
@@ -62,7 +66,22 @@ return (
                                         animate="move"
                                         variants={variants}
                                         onAnimationComplete={() => changeBackground(i)}
-                                        />
+                                        >
+                                        </motion.div>
+
+                                        {/* <motion.div
+                                        className={`h-1/2 rounded-2xl absolute top-0 left-0 hp`}
+                                        custom={i}
+                                        animate="bg_move"
+                                        variants={variants}
+                                        style= {{
+                                                background: "linear-gradient(to right, rgba(85, 239, 196,0.4), rgba(129, 236, 236,0.4))",
+                                                translateX: "-20px",
+                                        }}
+                                        /> */}
+
+
+                                                
                                 </div>
                         ))}
                 </div>
