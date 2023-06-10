@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 export default function DistanceResult({setType}) {
 const [backgroundImage, setBackgroundImage] = useState(Array.from({length: 8}, () => "no-repeat center/100% url('/amb.png')"));
+const [backgroundColor, setBackgroundColor] = useState(Array.from({length: 8}, () => "linear-gradient(to right, rgba(85, 239, 196,0.4), rgba(129, 236, 236,0.4))"));
 
 const dist = [0, 15, 20, 35, 50, 25, 10, 0]
 
@@ -15,14 +16,24 @@ move: i => ({
  }),
  bg_move: i => ({
         transition: { duration: 5 * (dist[i]/25+1), ease: "linear" },
-        width: [`0%`, `${100 - dist[i]}%`], 
+        width: [`0vw`, `${100 - dist[i]}vw`], 
+        // width: [`0vw`, `${100 - dist[i]}vw`], 
  })
  }
 
-const changeBackground = (i) => {
+const changeBackgroundImage = (i) => {
         if([1, 2, 3, 4, 5, 6].includes(i)) {
                 setBackgroundImage(backgroundImage.map((b, index) => {
                         if(index == i) return "no-repeat center/100% url('/amb_black.png')";
+                        else return b;
+                }));
+        }       else return;
+}
+
+const changeBackgroundColor = (i) => {
+        if([1, 2, 3, 4, 5, 6].includes(i)) {
+                setBackgroundColor(backgroundColor.map((b, index) => {
+                        if(index == i) return "rgba(99, 110, 114,0.5)";
                         else return b;
                 }));
         }       else return;
@@ -38,7 +49,7 @@ return (
 
                 <motion.div 
                 className="w-full h-6 border-2 rounded-2xl relative"
-                animate={{ borderColor: [ '#16a085', '#d63031'] }}
+                animate={{ borderColor: [ 'rgba(116, 185, 255,0.5)', 'rgba(214, 48, 49,0.5)'] }}
                 transition={{
                 ease: "linear",
                 duration: 5 * (dist[4]/25+1)
@@ -46,7 +57,7 @@ return (
                 >
                         <motion.div
                         className={`h-full rounded-2xl absolute top-0 left-0 hp`}
-                        animate={{ width: ['0%', '100%'], backgroundColor: ['#16a085', '#d63031'] }}
+                        animate={{ width: ['0%', '100%'], backgroundColor: ['rgba(116, 185, 255,0.5)', 'rgba(214, 48, 49,0.5)'] }}
                         transition={{
                         ease: "linear",
                         duration: 5 * (dist[4]/25+1),
@@ -65,20 +76,20 @@ return (
                                         custom={i}
                                         animate="move"
                                         variants={variants}
-                                        onAnimationComplete={() => changeBackground(i)}
+                                        onAnimationComplete={() => changeBackgroundImage(i)}
                                         >
-                                        </motion.div>
+                                        <motion.div
+                                                className={`h-[10px] rounded-2xl absolute bottom-[15px] left-[20px] hp`}
+                                                custom={i}
+                                                animate="bg_move"
+                                                variants={variants}
+                                                style= {{
+                                                        background: backgroundColor[i],
+                                                }}
+                                                onAnimationComplete={() => changeBackgroundColor(i)}
+                                                />
 
-                                        {/* <motion.div
-                                        className={`h-1/2 rounded-2xl absolute top-0 left-0 hp`}
-                                        custom={i}
-                                        animate="bg_move"
-                                        variants={variants}
-                                        style= {{
-                                                background: "linear-gradient(to right, rgba(85, 239, 196,0.4), rgba(129, 236, 236,0.4))",
-                                                translateX: "-20px",
-                                        }}
-                                        /> */}
+                                        </motion.div>
 
 
                                                 
