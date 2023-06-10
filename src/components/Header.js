@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { descriptionState, hpState, showDescriptionState, showHpState } from "@/states";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Header() {
     const hp = useRecoilValue(hpState);
@@ -23,6 +24,21 @@ export default function Header() {
                 {showHp && (
                 <div className="w-24 flex flex-col items-center">
                     <span className="mb-1">HP : {hp}</span>
+                    <motion.div 
+                    className="w-[50px] h-[50px]"
+                    animate={{ scale: [1.0, 1.5, 1.0] }}
+                    transition={{
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        duration: 2,
+                    }}
+                    style={{
+                        backgroundImage: `url('/heart.png')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}
+                    />
+                    {/* <Image src='/clock.png' width={50} height={50} alt='clock' /> */}
                     <motion.div 
                     className="w-24 h-6 border-secondary border-2 rounded-2xl relative"
                     initial={{ borderColor: '#16a085' }}
