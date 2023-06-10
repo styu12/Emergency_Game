@@ -29,13 +29,13 @@ export default function Home() {
 
         <div className='flex w-full justify-between p-20'>
         <Link href='/game/0/accident'>
-            <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/student.png' width={300} height={300} alt='student' />
+            <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/student.png' width={250} height={250} alt='student' />
         </Link>
         <Link href='/game/1/accident'>
-          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/girl.png' width={300} height={300} alt='girl' /> 
+          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/girl.png' width={250} height={250} alt='girl' /> 
         </Link>
         <Link href='/game/2/accident'>
-          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/grandpa.png' width={300} height={300} alt='grandpa' />
+          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/grandpa.png' width={250} height={250} alt='grandpa' />
         </Link>
         </div>    
       </div> 

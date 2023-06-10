@@ -87,7 +87,7 @@ export default function Choice() {
 
                     <Image 
                     onClick={() => { move(0) }}
-                    src="/clinic.png" className="absolute cursor-pointer" width={40} height={40}
+                    src="/clinic.png" className="absolute cursor-pointer" width={64} height={64}
                     style={{
                         top: `${dir[0][0]}%`,
                         left: `${dir[0][1]}%`,
@@ -96,7 +96,7 @@ export default function Choice() {
 
                 <Image 
                     onClick={() => { move(1) }}
-                    src="/clinic.png" className="absolute cursor-pointer" width={40} height={40}
+                    src="/clinic.png" className="absolute cursor-pointer" width={64} height={64}
                     style={{
                         top: `${dir[1][0]}%`,
                         left: `${dir[1][1]}%`,
@@ -105,7 +105,7 @@ export default function Choice() {
 
                     <Image 
                     onClick={() => { move(2) }}
-                    src="/clinic.png" className="absolute cursor-pointer" width={40} height={40}
+                    src="/clinic.png" className="absolute cursor-pointer" width={64} height={64}
                     style={{
                         top: `${dir[2][0]}%`,
                         left: `${dir[2][1]}%`,

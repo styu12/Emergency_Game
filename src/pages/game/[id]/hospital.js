@@ -41,19 +41,15 @@ export default function Hospital() {
 
     return type && ( 
         <Layout>
-            <div className="w-full h-full flex flex-col items-center justify-center">
-                <div className="h-full w-full flex flex-row justify-center px-32 items-center">
-                    {/* <div className=" w-full h-2/3 border-secondary rounded-lg border-2"
-                    style={{
-                        backgroundImage: type === 'general' ? `url(${hospitalContents[id]?.general.img})` : `url(${hospitalContents[id]?.local.img})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                    >
-                        <h1>권역응급센터</h1>
-                    </div> */}
+            <div className="w-full h-full flex flex-col items-center justify-center rounded-2xl" style={{
+                background: "url('/clinic_background.png')",
+                backgroundSize: "contain",
+                backgroundPosition: "right",
+                backgroundRepeat: "no-repeat",
+            }}>
+                <div className="h-full w-full flex flex-row items-center">
                     <Image src={type === 'general' ? hospitalContents[id]?.general.img : hospitalContents[id]?.local.img} width={500} height={500}
-                    className="rounded-xl shadow-lg"
+                    className="rounded-xl"
                     />
                 </div>
 
