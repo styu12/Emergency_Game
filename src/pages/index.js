@@ -29,13 +29,33 @@ export default function Home() {
 
         <div className='flex w-full justify-between p-20'>
         <Link href='/game/0/accident'>
-            <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/student.png' width={250} height={250} alt='student' />
+            <Image className=" shadow-xl transition-transform hover:scale-125 rounded-2xl" src='/student.png' width={250} height={250} alt='student' />
+            <h3 className="mt-10 text-xl text-center text-primary font-bold">김모 군</h3>
+            <p className="mt-3 text-center">
+              23세 남학생<br />
+              서울대학교 재학 <br />
+              암벽 등반을 즐김 <br />
+            </p>
         </Link>
+
         <Link href='/game/1/accident'>
-          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/girl.png' width={250} height={250} alt='girl' /> 
+          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/woman.png' width={250} height={250} alt='girl' /> 
+          <h3 className="mt-10 text-xl text-center text-primary font-bold">박모 양</h3>
+          <p className="mt-3 text-center">
+              30대 평범한 직장인<br />
+              대구 거주 <br />
+              공황으로 인한 실신이 잦음 <br />
+            </p>
         </Link>
+
         <Link href='/game/2/accident'>
-          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/grandpa.png' width={250} height={250} alt='grandpa' />
+          <Image className=" shadow-2xl transition-transform hover:scale-125 rounded-2xl" src='/grandma.png' width={250} height={250} alt='grandpa' />
+          <h3 className="mt-10 text-xl text-center text-primary font-bold">김복자 할머니</h3>
+          <p className="mt-3 text-center">
+              65세 할머니 <br />
+              전남 홀로 거주 <br />
+              편두통 앓음 <br />
+            </p>
         </Link>
         </div>    
       </div> 

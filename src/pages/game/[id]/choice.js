@@ -1,6 +1,6 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { captionState, descriptionState, hpState, posState, showCaptionState, showHpState } from "@/states";
-import { useEffect } from "react";
+import { captionState, choiceCountState, descriptionState, hpState, posState, showCaptionState, showHpState } from "@/states";
+import { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
 import { choiceContents } from "@/contents/Content";
@@ -14,19 +14,16 @@ export default function Choice() {
     const setShowCaption = useSetRecoilState(showCaptionState);
     const setCaption = useSetRecoilState(captionState);
     const setDescription = useSetRecoilState(descriptionState);
+    const setChoiceCount = useSetRecoilState(choiceCountState);
     const [pos, setPos] = useRecoilState(posState);
     const [hp, setHp] = useRecoilState(hpState);
 
-    const dir = [
-        [15, 60],
-        [65, 75],
-        [45, 15]
-    ]
+    const [isHover, setIsHover] = useState([false, false, false]);
 
     useEffect(() => {
-        setTimeout(() => {
-            setShowCaption(true);
-        }, 300);
+        // setTimeout(() => {
+        //     setShowCaption(true);
+        // }, 300);
         setShowHp(true);
     }, []);
 
@@ -38,20 +35,9 @@ export default function Choice() {
     setDescription(choiceContents[id]?.description);
 
     const move = (i) => {
-        setPos([dir[i][0], dir[i][1]]);
+        setPos([choiceContents[id]?.dir[i][0], choiceContents[id]?.dir[i][1]]);
 
-        let type;
-        switch(i) {
-            case 0:
-                type = 'general';
-                break;
-            case 1:
-                type = 'general';
-                break;
-            case 2:
-                type = 'local';
-                break;
-        }
+        const type = choiceContents[id]?.hospital[i].type;
 
         if(hp <= 20) {
             setHp(0);
@@ -59,9 +45,9 @@ export default function Choice() {
                 router.push(`/game/${id}/ending`);
             }, 1000);
         }   else {
-            setHp(prev => prev-20);
+            setHp(prev => prev-10);
+            setChoiceCount(prev => prev+1);
             setTimeout(() => {
-                // setObj({...obj, stage: stages.HOSPITAL});
                 router.push(`/game/${id}/hospital?type=${type}`);
             }, 2000);
         }
@@ -85,32 +71,40 @@ export default function Choice() {
                             }
                         `}</style>
 
-                    <Image 
-                    onClick={() => { move(0) }}
-                    src="/clinic.png" className="absolute cursor-pointer hover:scale-125 transition-transform" width={64} height={64}
-                    style={{
-                        top: `${dir[0][0]}%`,
-                        left: `${dir[0][1]}%`,
-                    }}
-                    />
+                    {choiceContents[id]?.dir.map((d, i) => (
+                        <div
+                        onMouseOver={() => { setIsHover(prev => prev.map((v, idx) => idx === i ? true : false)) }} 
+                        onMouseOut={() => { setIsHover(prev => prev.map(() => false)) }}
+                        style={{
+                            position: 'absolute',
+                            top: `${d[0]}%`,
+                            left: `${d[1]}%`,
+                        }}>
+                            {choiceContents[id]?.hospital[i].type === 'general' ? (
+                                <Image 
+                                onClick={() => { move(i) }}
+                                src="/clinic_big.png" className="cursor-pointer hover:scale-125 transition-transform" width={96} height={96}
+                                />
+                            ) : (
+                                <Image 
+                                onClick={() => { move(i) }}
+                                src="/clinic.png" className="cursor-pointer hover:scale-125 transition-transform" width={64} height={64}
+                                />
+                            )}
+                            
 
-                <Image 
-                    onClick={() => { move(1) }}
-                    src="/clinic.png" className="absolute cursor-pointer hover:scale-125 transition-transform" width={64} height={64}
-                    style={{
-                        top: `${dir[1][0]}%`,
-                        left: `${dir[1][1]}%`,
-                    }}
-                    />
+                            {isHover[i]  && (
+                            <div className=" p-4 bg-white rounded-2xl absolute w-80 shadow-2xl">
+                                    <h3 className=" font-bold text-lg">{choiceContents[id]?.hospital[i].title}</h3>
+                                    <p>
+                                        {choiceContents[id]?.hospital[i].desc}
+                                    </p>
+                            </div>
+                            )}
 
-                    <Image 
-                    onClick={() => { move(2) }}
-                    src="/clinic.png" className="absolute cursor-pointer hover:scale-125 transition-transform" width={64} height={64}
-                    style={{
-                        top: `${dir[2][0]}%`,
-                        left: `${dir[2][1]}%`,
-                    }}
-                    />
+                        </div>
+                    ))}
+
                 </div>    
             </div>
         </Layout>

@@ -1,30 +1,48 @@
 import Layout from "@/components/Layout";
-import { descriptionState, hpState, showHpState } from "@/states";
+import { captionState, descriptionState, hpState, showCaptionState, showHpState } from "@/states";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { motion } from 'framer-motion';
+import { moveContents } from "@/contents/Content";
 
 export default function Move() {
     const router = useRouter();
     const { id } = router.query;
 
     const setDescription = useSetRecoilState(descriptionState);
+    const setCaption = useSetRecoilState(captionState);
+    const setShowCaption = useSetRecoilState(showCaptionState);
     const setHp = useSetRecoilState(hpState);
     const setShowHp = useSetRecoilState(showHpState);
 
     useEffect(() => {
-        setDescription(`서울로 이동하는 시간이 너무 오래 걸려
-        환자의 생명이 위험합니다.
-        빨리 응급실로 이동하세요!`
-        );
         setShowHp(true);
-        setHp(20);
-    
+        if(id && id === '1') {
+            setHp(0);
+        }   else {
+            setHp(10);
+        }
+
         setTimeout(() => {
-            router.push(`/game/${id}/hospital?type=general`);
-        }, 4000);
+            setShowCaption(true);
+        }, 300);
+
+        setTimeout(() => {
+            setShowCaption(false);
+        }, 4500);
+        
+        setTimeout(() => {
+            router.push(`/game/${id}/ending`);
+        }, 5000);
     }, [id]);
+
+    setCaption({
+        title: moveContents[id]?.capTitle,
+        content: moveContents[id]?.capContent,
+    });
+
+    setDescription(moveContents[id]?.description);
 
     return (
         <Layout>
@@ -38,7 +56,7 @@ export default function Move() {
                 animate={{ opacity: 0 }}
                 transition={{ duration: 5 }}
                 >
-                    <h1 className="text-6xl font-bold text-center text-primary mb-12">서울로 환자 이송 중</h1>
+                    <h1 className="text-6xl font-bold text-center text-primary mb-12">환자 이송 중</h1>
                 </motion.div>
             </div>
         </Layout>

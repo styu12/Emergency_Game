@@ -37,3 +37,8 @@ export const showDescriptionState = atom({
     key: "showDescriptionState",
     default: true,
 });
+
+export const choiceCountState = atom({
+    key: "choiceCountState",
+    default: 0,
+});

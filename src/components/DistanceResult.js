@@ -44,7 +44,7 @@ return (
         <>
                 <div className="flex items-center mb-10">
                         <button className="mr-5 button" onClick={() => setType("")}>Before</button>
-                        <h2 className='text-4xl font-bold text-primary'>병원까지 이동 시간 : 1.5시간(수도권) vs 3시간(지방)</h2>
+                        <h2 className='text-4xl font-bold text-primary'>우리 지역에서는 골든타임 안에 응급실에 도착할 수 있을까?</h2>
                 </div>
 
                 <motion.div 
