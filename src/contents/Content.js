@@ -99,7 +99,7 @@ export const choiceContents = [
         capContent: `현재 위치 근처 1개의 응급실에 갈 수 있어요.
         병원을 골라주세요!`,
         img: '/map_daegu.png',
-        description: `목포에는 응급실이 1개밖에 없다. 거기라도 얼른 가보자!`,
+        description: `구례에는 응급실이 1개밖에 없다. 거기라도 얼른 가보자!`,
         dir: [   
             [55, 60]
         ],
