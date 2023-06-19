@@ -108,7 +108,7 @@ return (
                         className="fixed top-[50%] left-[50%] w-[90vw] transform -translate-x-[45vw] h-[600px] -translate-y-[300px] bg-gray-200 p-6 text-primary font-bold rounded-2xl flex justify-center items-center shadow-lg">
                                 <h3 className=" text-2xl" style={{ lineHeight : '1.5'}}>
                                 본 자료는 2019년 지역별 DOA 환자 응급실 도착시간을 나타낸 자료입니다. <br />
-                                2020년에 DOA 환자가 30분 이내에 응급실에 도착한 지역은 <strong className=" text-red-500">없었습니다.</strong>
+                                2020년에 DOA 환자가 <strong className=" text-red-500">30분</strong> 이내에 응급실에 도착한 지역은 <strong className=" text-red-500">없었습니다.</strong>
                                 </h3>
                                 <button className="text-3xl absolute top-8 right-8 cursor-pointer font-bold"
                                 onClick={() => setShow(false)}>
