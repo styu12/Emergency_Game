@@ -12,12 +12,18 @@ export default function DoctorResult({setType}) {
                 <h2 className='text-4xl font-bold text-primary'>
                     {
                         change ? 
-                        "2020년 서울시 인구 10만명당 응급의학 전문의 수 :" : 
-                        "당신을 살릴 응급의학전문의는 몇 명일까요?"
+                        "찾을 수 있으셨나요?" : 
+                        "그림에서 빨간 점을 찾아보세요."
                     }
                 </h2>
-                <span className="text-3xl text-red-500 ml-4 font-bold">{change ? '9명' : "빨간 점을 찾아보세요!!"}</span>
             </div>
+
+            <p className="text-2xl ml-32">
+                    {change ? 
+                    '이 그림은 2020년 서울시 인구 10만 명 당 응급의학 전문의 수(9명)를 검은 점 사이 빨간 점으로 표시한 모습입니다.' : 
+                    "당신을 살릴 수 있는 응급의학전문의가 이 사이에 숨어 있습니다!"
+                    }
+                </p>
             
             <div className="flex justify-between items-center w-full h-full">
                 <div className={`w-[90%] h-[100%] transition-all duration-500`}

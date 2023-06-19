@@ -156,7 +156,7 @@ export const hospitalContents = [
             (검사 후) 우선 조치는 취했지만, 정밀검사가 필요해서 다른 병원으로 가봐야 할 것 같습니다.`,
             img: '/nurse_no_detail.png',
             bg_img: '/clinic_background.png',
-            description: `파티마병원은 대구 내 몇 없는 2차 병원이다. 대학병원보다는 시설, 기술이 좋지 않지만 대기환자가 적어 비교적 빠른 진료가 가능하다.`,
+            description: `파티마병원은 대구 내 몇 없는 2차 병원이다.`,
         }
     },
 
@@ -261,7 +261,7 @@ export const dataContents = [
                 description: ``,
             }, 
             {
-                
+
             }
         ]
     },
