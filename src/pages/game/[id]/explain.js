@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { dataContents } from "@/contents/Content";
 import Image from "next/image";
 
-export default function Data() {
+export default function Explain() {
     const router = useRouter();
     const { id, type } = router.query;
 
@@ -31,11 +31,10 @@ export default function Data() {
     });
 
     if(type && type === 'general') {
-        setDescription(dataContents[id]?.general[0].description);
+        setDescription(dataContents[id]?.general[1].description);
     }   else {        
-        setDescription(dataContents[id]?.local[0].description);
+        setDescription(dataContents[id]?.local[1].description);
     }
-    
 
     return dataContents && type && (
         <Layout>
@@ -48,43 +47,26 @@ export default function Data() {
                 {type === 'general' ? (
                     <div className="h-full w-full flex flex-col justify-center px-16 items-center">
                         <h2 className='mb-5 text-2xl font-bold text-primary text-center'>
-                            {dataContents[id]?.general[0].title}
+                            {dataContents[id]?.general[1].title}
                         </h2>
 
-                        <Image src={dataContents[id]?.general[0].img} width={800} height={500}
+                        <Image src={dataContents[id]?.general[1].img} width={800} height={500}
                         className="rounded-xl shadow-lg"
                         />
                     </div>
                 ) : (
                     <div className="h-full w-full flex flex-col justify-center px-16 items-center">
                         <h2 className='mb-5 text-2xl font-bold text-primary text-center'>
-                        {dataContents[id]?.local[0].title}
+                        {dataContents[id]?.local[1].title}
                         </h2>
 
-                        <Image src={dataContents[id]?.local[0].img} width={800} height={500}
+                        <Image src={dataContents[id]?.local[1].img} width={800} height={500}
                         className="rounded-xl shadow-lg"
                         />
                     </div>
                 )}
 
-                    {id !== '2' ? (
-                        <div>
-                        <Link 
-                            className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
-                            href={`/game/${id}/explain?type=${type}`}
-                            >NEXT</Link>
-                        </div>
-                    ) : (
-                        <div>
-                            <Link 
-                            className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
-                            href={`/game/${id}/move`}
-                            >다른 병원 골라보자</Link>
-                        </div>
-                    )}
-                
-
-                {/* {id === '0' && choiceCount >= 2 ? (
+                {id === '0' && choiceCount >= 2 ? (
                     <div>
                     <Link 
                         className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
@@ -112,7 +94,7 @@ export default function Data() {
                         href={`/game/${id}/choice`}
                         >다른 병원 골라보자</Link>
                     </div>
-                )} */}
+                )}
                 
             </div>
         </Layout>

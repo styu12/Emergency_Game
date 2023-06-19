@@ -54,14 +54,14 @@ export default function Hospital() {
                     />
                 </div>
 
-                {/* <div>
+                <div>
                     <Link 
                     className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
-                    href={`/game/${id}/data`}
+                    href={`/game/${id}/data?type=${type}`}
                     >데이터 보러가기</Link>
-                </div> */}
+                </div>
 
-                {id === '0' && choiceCount >= 2 ? (
+                {/* {id === '0' && choiceCount >= 2 ? (
                     <div>
                     <Link 
                         className="button fixed bottom-10 right-10 w-52 text-lg font-semibold"
@@ -89,7 +89,7 @@ export default function Hospital() {
                         href={`/game/${id}/choice`}
                         >다른 병원 골라보자</Link>
                     </div>
-                )}
+                )} */}
 
             </div>
         </Layout>

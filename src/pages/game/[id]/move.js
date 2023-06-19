@@ -30,11 +30,11 @@ export default function Move() {
 
         setTimeout(() => {
             setShowCaption(false);
-        }, 4500);
+        }, 2500);
         
         setTimeout(() => {
             router.push(`/game/${id}/final`);
-        }, 5000);
+        }, 7000);
     }, [id]);
 
     setCaption({
@@ -54,7 +54,7 @@ export default function Move() {
                 }}
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 0 }}
-                transition={{ duration: 5 }}
+                transition={{ duration: 7 }}
                 >
                     {/* <h1 className="text-6xl font-bold text-center text-primary mb-12">환자 이송 중</h1> */}
                 </motion.div>

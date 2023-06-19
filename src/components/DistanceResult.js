@@ -1,9 +1,16 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 
 export default function DistanceResult({setType}) {
+const [show, setShow] = useState(false);
+useEffect(() => {
+       setTimeout(() => {
+        setShow(true);
+        }, 15000);
+}, []);
+
 const [backgroundImage, setBackgroundImage] = useState(Array.from({length: 8}, () => "no-repeat center/100% url('/amb.png')"));
 const [backgroundColor, setBackgroundColor] = useState(Array.from({length: 8}, () => "linear-gradient(to right, rgba(85, 239, 196,0.4), rgba(129, 236, 236,0.4))"));
 
@@ -17,7 +24,6 @@ move: i => ({
  bg_move: i => ({
         transition: { duration: 5 * (dist[i]/25+1), ease: "linear" },
         width: [`0vw`, `${100 - dist[i]}vw`], 
-        // width: [`0vw`, `${100 - dist[i]}vw`], 
  })
  }
 
@@ -96,6 +102,20 @@ return (
                                 </div>
                         ))}
                 </div>
+
+                {show && (
+                        <div 
+                        className="fixed top-[50%] left-[50%] w-[90vw] transform -translate-x-[45vw] h-[600px] -translate-y-[300px] bg-gray-200 p-6 text-primary font-bold rounded-2xl flex justify-center items-center shadow-lg">
+                                <h3 className=" text-2xl" style={{ lineHeight : '1.5'}}>
+                                본 자료는 2019년 지역별 DOA 환자 응급실 도착시간을 나타낸 자료입니다. <br />
+                                2020년에 DOA 환자가 30분 이내에 응급실에 도착한 지역은 <strong className=" text-red-500">없었습니다.</strong>
+                                </h3>
+                                <button className="text-3xl absolute top-8 right-8 cursor-pointer font-bold"
+                                onClick={() => setShow(false)}>
+                                        X
+                                </button>
+                        </div>
+                )}
         </>
 )
 }
