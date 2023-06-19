@@ -11,7 +11,7 @@ const [backgroundColor, setBackgroundColor] = useState(Array.from({length: 8}, (
 useEffect(() => {
        setTimeout(() => {
         setShow(true);
-        }, 6000);
+        }, 5500);
 
         setTimeout(() => {
                 setBackgroundImage(backgroundImage.map((b, index) => {
