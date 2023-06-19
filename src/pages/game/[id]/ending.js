@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { choiceCountState, posState, showDescriptionState, showHpState } from "@/states";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -25,10 +26,22 @@ export default function Ending() {
         return (
             <Layout>
                 <div className="w-full h-full flex flex-col items-center justify-center rounded-3xl">
-                    <div className="mb-12 flex flex-col items-center">
-                        <h1 className="text-4xl font-bold text-center text-primary mb-12">
-                            환자는 도착했지만 골든 타임을 넘겨 수술이 쉽지 않았다... 깨어날 수 있을까...?
-                        </h1>
+                    <div className="p-6 flex flex-col items-center">
+
+                        <div className="flex items-center justify-center mb-10">
+                            <Image src='/student_ending.png'
+                            alt="accident"
+                            width={200}
+                            height={200}
+                            className="rounded-2xl shadow-lg mr-5"
+                            />
+
+                            <h1 className="text-2xl font-bold text-center text-primary" style={{lineHeight: '1.5'}}>
+                                환자는 도착했지만 골든 타임을 넘겨 수술이 쉽지 않았다... 깨어날 수 있을까...?
+                            </h1>
+
+                        </div>
+                        
                         
                         <h2 className="text-xl text-tertiary font-black mb-5">
                             본 스토리는 2022년 서울아산병원 간호사 사망 사건을 모티브로 제작되었습니다.
@@ -65,10 +78,21 @@ export default function Ending() {
         return (
             <Layout>
                 <div className="w-full h-full flex flex-col items-center justify-center rounded-3xl">
-                    <div className="mb-12 flex flex-col items-center">
-                        <h1 className="text-4xl font-bold text-center text-primary mb-12">
+                    <div className="p-6 flex flex-col items-center">
+
+                        <div className="flex items-center justify-center mb-10">
+                            <Image src='/woman_ending.png'
+                            alt="accident"
+                            width={200}
+                            height={200}
+                            className="rounded-2xl shadow-lg mr-5"
+                            />
+
+                            <h1 className="text-2xl font-bold text-center text-primary" style={{lineHeight: '1.5'}}>
                             계속되는 전원을 견디지 못한 환자는 앰뷸런스 안에서 숨을 거뒀다...
-                        </h1>
+                            </h1>
+
+                        </div>
                         
                         <h2 className="text-xl text-tertiary font-black mb-5">
                             본 스토리는 응급실 뺑뺑이 사망 사건을 모티브로 제작되었습니다.
@@ -101,10 +125,21 @@ export default function Ending() {
         return (
             <Layout>
                 <div className="w-full h-full flex flex-col items-center justify-center rounded-3xl">
-                    <div className="mb-12 flex flex-col items-center">
-                        <h1 className="text-4xl font-bold text-center text-primary mb-12">
+                    <div className="p-6 flex flex-col items-center">
+
+                        <div className="flex items-center justify-center mb-10">
+                            <Image src='/grandma_ending.png'
+                            alt="accident"
+                            width={200}
+                            height={200}
+                            className="rounded-2xl shadow-lg mr-5"
+                            />
+
+                            <h1 className="text-2xl font-bold text-center text-primary" style={{lineHeight: '1.5'}}>
                             서울 병원에 도착해서 뇌졸중 진단을 받았는데, 수술할 수 있는 병원이 없다...?
-                        </h1>
+                            </h1>
+
+                        </div>
                         
                         <h2 className="text-xl text-tertiary font-black mb-5">
                             본 스토리는 지방 의료 붕괴 문제를 모티브로 제작되었습니다.

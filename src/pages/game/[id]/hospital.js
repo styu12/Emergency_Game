@@ -43,7 +43,7 @@ export default function Hospital() {
     return type && ( 
         <Layout>
             <div className="w-full h-full flex flex-col items-center justify-center rounded-2xl" style={{
-                background: "url('/clinic_background.png')",
+                background: type === 'general' ? `url('${hospitalContents[id]?.general.bg_img}') no-repeat right/70%` : `url('${hospitalContents[id]?.local.bg_img}') no-repeat right/70%`,
                 backgroundSize: "contain",
                 backgroundPosition: "right",
                 backgroundRepeat: "no-repeat",

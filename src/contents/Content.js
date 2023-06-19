@@ -98,7 +98,7 @@ export const choiceContents = [
         capTitle: "!! 환자의 생명이 위급해요! 응급실을 골라주세요 !!",
         capContent: `현재 위치 근처 1개의 응급실에 갈 수 있어요.
         병원을 골라주세요!`,
-        img: '/map_daegu.png',
+        img: '/map_gurae.png',
         description: `구례에는 응급실이 1개밖에 없다. 거기라도 얼른 가보자!`,
         dir: [   
             [55, 60]
@@ -123,7 +123,8 @@ export const hospitalContents = [
             capContent: `(응급실 간호사) 죄송합니다. 저희가 지금 병상이 꽉 차서 환자를 받을 수가 없어요. 빨리 다른 병원으로 가보시는 게 좋을 것 같아요.
             (구급대원) 그러면 외상들 간단하게 처치라도 해주시면 안될까요?
             (응급실 간호사) 응급실 의사 선생님들 전부 수술방에 들어가 있어서 어려울 것 같아요.`,
-            img: '/nurse.png',
+            img: '/nurse_no_bed.png',
+            bg_img: '/clinic_background.png',
             description: `권역응급의료센터에 도착했지만, 중환자실 병상이 부족하고, 모든 의사가 수술 중이라 빠른 처치가 어렵다고 한다. 다른 응급실을 골라주세요!`,
         },
         local: {
@@ -132,26 +133,29 @@ export const hospitalContents = [
             (응급실 의사) 말씀하신 것보다 환자 상태가 심각하네요. 사지뿐 아니라 두부 손상도 있는 것 같고
             장기 손상으로 인해 다발성 장기부전도 있는 것 같은데 여기서는 수술이 불가능합니다.
             이 환자 보려면 정형외과에 신경과에 외과 서전까지 있어야 합니다. 큰 병원으로 가보세요.`,
-            img: '/nurse.png',
+            img: '/nurse_big_hospital.png',
+            bg_img: '/clinic_background.png',
             description: `지역응급의료센터에 도착했지만, 병원 내 의료진이 부족하고 심각한 중증 외상이라 다루기 어렵다. 치료가 불가능하다고 한다.`,
         }
     },
 
     {
         general: {
-            capTitle: "응급실 의사) '지금 병상이 꽉 차서 환자를 받을 수가 없어요. ㅠㅠ'",
+            capTitle: "응급실 간호사) '지금 병상이 꽉 차서 환자를 받을 수가 없어요. ㅠㅠ'",
             capContent: `(구급대원) 점심 쯤 갑자기 실신했다고 합니다. 실신하면서 머리에 충격을 입은 것 같은데 의식이 안 돌아오고 있습니다.
-            (응급실 의사) 머리 쪽이면 정밀검사가 필요할 것 같은데, 저희가 지금 환자를 받을 수 있는 병상이 부족합니다.
+            (응급실 간호사) 머리 쪽이면 정밀검사가 필요할 것 같은데, 저희가 지금 환자를 받을 수 있는 병상이 부족합니다.
             다른 병원으로 가보셔야 할 것 같은데요,,,`,
-            img: '/doctor.png',
+            img: '/nurse_no_bed.png',
+            bg_img: '/clinic_background.png',
             description: `대학병원 응급실에 도착했지만, 응급실 내 병상이 부족해서 치료를 받을 수 없다고 한다. 다른 병원으로 다시 가보자.`,
         },
         local: {
-            capTitle: "응급실 의사) '간단한 검사는 했지만, 정밀검사가 필요해요. 다른 병원으로 가보세요.'",
+            capTitle: "응급실 간호사) '간단한 검사는 했지만, 정밀검사가 필요해요. 다른 병원으로 가보세요.'",
             capContent: `(구급대원) 점심 쯤 갑자기 실신했다고 합니다. 실신하면서 머리에 충격을 입은 것 같은데 의식이 안 돌아오고 있습니다.
-            (응급실 의사) 머리 쪽이면 정밀검사가 필요할 것 같은데, 대략적인 검사라도 우선 해보겠습니다.
+            (응급실 간호사) 머리 쪽이면 정밀검사가 필요할 것 같은데, 대략적인 검사라도 우선 해보겠습니다.
             (검사 후) 우선 조치는 취했지만, 정밀검사가 필요해서 다른 병원으로 가봐야 할 것 같습니다.`,
-            img: '/doctor.png',
+            img: '/nurse_no_detail.png',
+            bg_img: '/clinic_background.png',
             description: `파티마병원은 대구 내 몇 없는 2차 병원이다. 대학병원보다는 시설, 기술이 좋지 않지만 대기환자가 적어 비교적 빠른 진료가 가능하다.`,
         }
     },
@@ -171,7 +175,8 @@ export const hospitalContents = [
             (응급실 의사) 증상 보니까 뇌졸중일 수 있는데요, 저희 같이 지방병원에는 신경과 의사가 없어서 여기서는 힘들어요.
             저기 광주나 더 윗동네에서 큰 병원 가보셔요.
             `,
-            img: '/doctor.png',
+            img: '/doctor_no_skill.png',
+            bg_img: '/clinic_background.png',
             description: `김복자 할머니가 병원에 도착해 의사에게 진료를 받습니다.`,
         }
     },
@@ -205,6 +210,7 @@ export const moveContents = [
         (구급대원) 병원 거의 다 와갑니다!! 조금만 버티세요!!`,
         description: `두 번이나 병원에서 거절당하자, 구급대원이 구급차에서 병원들에 전화를 돌립니다.
         갈 수 있는 곳이 마땅치 않자, 서울대병원으로 가기로 합니다.`,
+        img: '/amb_town.png',
     },
     {
         capTitle: "환자의 심박수가 옅어져 간다,,,",
@@ -212,12 +218,14 @@ export const moveContents = [
         병원으로 이동하는 도중 환자의 심박수가 점점 옅어지고 있습니다.
         결국 이송 중 심박수가 멈추었습니다.`,
         description: `병원으로 이동하는 20분의 시간 동안, 환자의 상태가 점점 나빠집니다. 결국 이송 중에 사망하게 됩니다.`,
+        img: '/amb_town.png',
     },
     {
         capTitle: "서울 병원으로 가는 중",
         capContent: `김복자 할머니는 정확한 진단을 받기 위해 서울에 있는 큰 병원으로 가기로 했습니다.
         할머니의 증상이 더 심해지기 전에 서둘러주세요!`,
         description: `김복자 할머니의 상태를 더 정확히 진단하기 위해 서울에 있는 병원으로 이송하기로 합니다.`,
+        img: '/amb_highway.png',
     },
 ]
 
@@ -238,5 +246,30 @@ export const cityContents = [
         img: 'https://www.elegantthemes.com/blog/wp-content/uploads/2019/05/featured-data-visualization.png',
         description: `환자를 살리기 위해 도시와 지역 중 어느 병원을 가야 할까요?`,
     },
+]
+
+export const finalContents = [
+    {
+        capTitle: "🚨 이미 골든타임이 지났어요!!",
+        capContent: `(구급대원) 이미 시간이 많이 지체됐어요! 
+        빨리 수술해주세요!!`,
+        img: '/amb_worker.png',
+        description: `이송 중에 이미 골든타임을 넘긴 김모 군. 무사히 수술을 마칠 수 있을까...?`,
+    }, 
+    {
+        capTitle: "🚨 심정지가 발생했어요!",
+        capContent: `(구급대원) 이송 중에 심정지가 발생했습니다! 
+        한시가 급해요!! 도와주세요!!`,
+        img: '/stretcher.png',
+        description: `이송 중에 심장 박동이 멈춘 박모 양. 극적으로 살릴 수 있을까...?`,
+    }, 
+    {
+        capTitle: "뇌졸중인데,,, 수술을 못한다고요?",
+        capContent: `(의사) 검사결과 뇌졸중 초기 단계인 것 같습니다.
+        수술하는 게 좋으세요. 그런데 저희는 이미 예약이 다 차서 힘드니까 
+        다른 병원 가보세요`,
+        img: '/doctor_smart.png',
+        description: `서울 병원가지 온 김복자 할머니. 정밀 진단을 통해 뇌졸중 초기 단계라는 사실을 알게 됩니다. 그런데, 수술을 할 수 있는 병상이 없다고요,,,?`,
+    }
 ]
 

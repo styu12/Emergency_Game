@@ -33,7 +33,7 @@ export default function Move() {
         }, 4500);
         
         setTimeout(() => {
-            router.push(`/game/${id}/ending`);
+            router.push(`/game/${id}/final`);
         }, 5000);
     }, [id]);
 
@@ -44,11 +44,11 @@ export default function Move() {
 
     setDescription(moveContents[id]?.description);
 
-    return (
+    return moveContents && (
         <Layout>
             <div className="w-full h-full flex flex-col items-center justify-center">
                 <motion.div className="h-full w-full flex flex-row justify-center px-32 py-16" style={{
-                    backgroundImage: 'url(https://as1.ftcdn.net/v2/jpg/02/94/68/26/1000_F_294682612_2UieVggk1ug4ZhFGzwS9FN5TqeOftRvm.jpg)',
+                    backgroundImage: `url(${moveContents[id]?.img})`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                 }}
@@ -56,7 +56,7 @@ export default function Move() {
                 animate={{ opacity: 0 }}
                 transition={{ duration: 5 }}
                 >
-                    <h1 className="text-6xl font-bold text-center text-primary mb-12">환자 이송 중</h1>
+                    {/* <h1 className="text-6xl font-bold text-center text-primary mb-12">환자 이송 중</h1> */}
                 </motion.div>
             </div>
         </Layout>
